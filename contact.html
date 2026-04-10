@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Contact Us | Inalyze Property Management</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="navbar-spacer"></div>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="logo">
+      <a href="index.html">
+        <img src="./images/Logo FULL.PNG" alt="Inalyze Property Logo">
+      </a>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html" class="nav-option">Home</a></li>
+      <li><a href="#services" class="nav-option">Services</a></li>
+      <li><a href="#about" class="nav-option">About</a></li>
+      <li><a href="#reviews" class="nav-option">Reviews</a></li>
+      <li><a href="gallery.html" class="nav-option">Gallery</a></li>
+      <li><a href="contact.html" class="contact-btn">Get Quote</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <!-- Contact Page Header -->
+    <div class="contact-page-header">
+      <h1>Contact Us</h1>
+      <p>We'd love to hear from you! Reach out to us for any inquiries or service requests.</p>
+    </div>
+
+    <!-- Contact Info Grid -->
+    <div class="contact-info-grid">
+      <div class="contact-info-card">
+        <div class="contact-icon">📞</div>
+        <h3>Phone</h3>
+        <p><a href="tel:+18883748437">(888) 374-8437</a></p>
+        <p>Mon-Fri: 8am - 6pm</p>
+        <p>Sat: 9am - 4pm</p>
+      </div>
+      
+      <div class="contact-info-card">
+        <div class="contact-icon">✉️</div>
+        <h3>Email</h3>
+        <p><a href="mailto:hello@inalyzeproperty.com">hello@inalyzeproperty.com</a></p>
+        <p>We respond within 24 hours</p>
+      </div>
+      
+      <div class="contact-info-card">
+        <div class="contact-icon">📍</div>
+        <h3>Service Area</h3>
+        <p>Florida & Surrounding Areas</p>
+        <p>We come to your location!</p>
+      </div>
+    </div>
+
+    <!-- Contact Form Section (reuses existing contact-section styles) -->
+    <div class="contact-section">
+      <div class="contact-flex">
+        <div class="contact-info">
+          <h3>Send Us a Message</h3>
+          <p class="contact-tagline">Fill out the form and we'll get back to you shortly.</p>
+          <p class="contact-details">💬 Free estimates<br>✅ Licensed & Insured<br>⭐ 5-Star Service Guaranteed</p>
+        </div>
+        <form class="contact-form" id="contactForm">
+          <input type="text" placeholder="Full name" required id="formName">
+          <input type="email" placeholder="Email address" required id="formEmail">
+          <input type="tel" placeholder="Phone number">
+          <textarea rows="3" placeholder="Tell us about your property needs..."></textarea>
+          <button type="submit" id="submitContactBtn">Send Message →</button>
+          <p id="formFeedback"></p>
+        </form>
+      </div>
+    </div>
+
+    <!-- Business Hours -->
+    <div class="business-hours">
+      <h3>Business Hours</h3>
+      <div class="hours-grid">
+        <div class="hours-column">
+          <p><strong>Monday - Friday</strong></p>
+          <p>8:00 AM - 6:00 PM</p>
+          <p><strong>Saturday</strong></p>
+          <p>9:00 AM - 4:00 PM</p>
+        </div>
+        <div class="hours-column">
+          <p><strong>Sunday</strong></p>
+          <p>Closed</p>
+          <p><strong>Emergency Services</strong></p>
+          <p>Available upon request</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Map -->
+    <div class="map-container">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.786181520528!2d-81.51599868441799!3d27.82916228230312!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88dcf2e0b6b2c0c3%3A0x8a5e9e8c5b5f5b5f!2sFlorida!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <p>© 2026 Inalyze Property</p>
+      <p>Top quality service you can trust</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Inalyze Property Management | Expert Home Services & Property Care</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Spacer to prevent content from hiding under fixed navbar -->
+  <div class="navbar-spacer"></div>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="logo">
+      <a href="#home">
+        <img src="./images/Logo FULL.PNG" alt="Inalyze Property Logo">
+      </a>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#home" class="nav-option" data-section="home">Home</a></li>
+      <li><a href="#services" class="nav-option" data-section="services">Services</a></li>
+      <li><a href="#about" class="nav-option" data-section="about">About</a></li>
+      <li><a href="#reviews" class="nav-option" data-section="reviews">Reviews</a></li>
+      <li><a href="gallery.html" class="nav-option">Gallery</a></li>
+      <li><a href="contact.html" class="contact-btn">Get Quote</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <!-- Home/Hero Section -->
+    <section id="home" class="hero">
+      <div class="hero-badge">Trusted Property Care</div>
+      <h2>Professional Pressure Washing & Home Services</h2>
+      <p>Serving Customers in Florida & Surrounding Areas — licensed, insured & locally operated.</p>
+      <div class="hero-buttons">
+        <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Request a Quote</button>
+        <button class="btn-outline" onclick="document.getElementById('services').scrollIntoView({behavior: 'smooth'})">Our Services</button>
+      </div>
+    </section>
+
+    <!-- Badges Row -->
+    <div class="badges-row">
+      <div class="badge-item"><span class="badge-icon">✅</span> Licensed & Insured</div>
+      <div class="badge-item"><span class="badge-icon">🏡</span> Family Owned & Operated</div>
+      <div class="badge-item"><span class="badge-icon">📍</span> Locally Owned & Operated</div>
+      <div class="badge-item"><span class="badge-icon">🚀</span> Young Entrepreneurs</div>
+    </div>
+
+    <!-- Services Section -->
+    <section id="services">
+      <div class="section-header">
+        <div class="section-title">Services for Every Season</div>
+        <div class="section-sub">No matter the time of year, we've got your property's exterior covered — from start to finish.</div>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card"><div class="service-icon">💧</div><h3>Pressure Washing</h3><p>Driveways, siding, decks — eco-friendly deep cleaning that restores & protects.</p></div>
+        <div class="service-card"><div class="service-icon">✨</div><h3>Window Cleaning</h3><p>Streak-free interior & exterior, screens included. Crystal clear view guaranteed.</p></div>
+        <div class="service-card"><div class="service-icon">🌿</div><h3>Lawn & Mulching</h3><p>Mulching, bush trimming, weed & shrub removal. Keep your yard pristine.</p></div>
+        <div class="service-card"><div class="service-icon">🍂</div><h3>Gutter Maintenance</h3><p>Clog-free gutters & downspouts — prevent water damage seasonally.</p></div>
+        <div class="service-card"><div class="service-icon">✂️</div><h3>Tree & Shrub Care</h3><p>Trimming, pruning, removal. Elevate curb appeal and plant health.</p></div>
+        <div class="service-card"><div class="service-icon">🏠</div><h3>Full Exterior Detailing</h3><p>Complete property refresh: soft wash, roof cleaning, fence wash.</p></div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+      <div class="about-wrap">
+        <div class="about-text">
+          <h3>About Inalyze Property</h3>
+          <p class="about-highlight">Expert Home Services for a Pristine Property</p>
+          <p class="about-para">Founded in 2023, Inalyze Property delivers exceptional exterior home solutions. Fully licensed & insured, we serve our community with professional, affordable, and reliable maintenance. Our team of skilled technicians uses eco-friendly methods for pressure washing, window cleaning, lawn care, and more. We treat every property like our own — delivering hassle-free excellence.</p>
+        </div>
+        <div class="ba-grid">
+          <div class="ba-card"><img src="./images/before.jpg" alt="Before"><span>Before</span></div>
+          <div class="ba-card"><img src="./images/after.jpg" alt="After"><span>After</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pressure Washing & Window Cleaning Detail -->
+    <div class="detail-section">
+      <div class="section-title" style="margin-bottom: 8px;">Professional Pressure Washing & Window Cleaning</div>
+      <div class="detail-flex">
+        <div class="detail-block"><strong>💧 Pressure Washing Services</strong><br>Over time, dirt & mildew build up. Our equipment removes deep stains, restoring concrete, siding, and decks. Eco-friendly solutions.</div>
+        <div class="detail-block"><strong>✨ Crystal-Clear Window Cleaning</strong><br>Interior + exterior, screen cleaning. Streak-free finish improves aesthetics & glass longevity. Professional tools & care.</div>
+      </div>
+    </div>
+
+    <!-- Reviews Section -->
+    <section id="reviews">
+      <div class="testimonials-header">
+        <div class="section-title">Testimonials & Reviews</div>
+        <div class="section-sub">Don't just take our word for it — hear from our happy customers</div>
+      </div>
+      <div class="testimonial-slider">
+        <div class="testimonial"><div class="stars">★★★★★</div><p>"Inalyze Property transformed our driveway and siding! They arrived on time, super professional. Highly recommend."</p><strong>— Sarah M.</strong></div>
+        <div class="testimonial"><div class="stars">★★★★★</div><p>"Window cleaning made our home shine. Their lawn care team is meticulous and friendly. Best decision!"</p><strong>— David R.</strong></div>
+        <div class="testimonial"><div class="stars">★★★★★</div><p>"Finally a local company that truly cares. Pressure washing, mulching, everything exceeded expectations."</p><strong>— Lisa K.</strong></div>
+      </div>
+    </section>
+
+    <!-- Lawn & Maintenance Double Card -->
+    <div class="double-card">
+      <div class="card-sp"><h3>🌱 Mastering Your Lawn With Precision</h3><p>Expert mowing, tailored fertilization, thorough weed control & seasonal care for lush, healthy yards.</p><ul><li>✓ Precision mowing & edging</li><li>✓ Custom fertilization plans</li><li>✓ Weed prevention & seasonal cleanups</li></ul></div>
+      <div class="card-sp"><h3>🏡 Comprehensive Home Maintenance</h3><p>Mulching, bush trimming, shrub removal, gutter cleaning & complete exterior refreshes. We keep your property in top shape year-round.</p><p class="mt-16"><strong>Your trusted partner for home maintenance.</strong> Contact us for a free estimate.</p></div>
+    </div>
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <div class="contact-section">
+        <div class="contact-flex">
+          <div class="contact-info">
+            <h3>Contact Us Today!</h3>
+            <p class="contact-tagline">A member of our team will be in touch shortly.</p>
+            <p class="contact-details">📞 (888) 374-8437<br>📍 Serving Florida & surrounding areas<br>✉️ hello@inalyzeproperty.com</p>
+          </div>
+          <form class="contact-form" id="contactForm">
+            <input type="text" placeholder="Full name" required id="formName">
+            <input type="email" placeholder="Email address" required id="formEmail">
+            <input type="tel" placeholder="Phone number">
+            <textarea rows="3" placeholder="Tell us about your property needs..."></textarea>
+            <button type="submit" id="submitContactBtn">Send Message →</button>
+            <p id="formFeedback"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>© 2026 Inalyze Property</p>
+      <p>Top quality service you can trust</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
