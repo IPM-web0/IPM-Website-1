@@ -184,39 +184,43 @@
 
 // ========== GALLERY PAGE FUNCTIONS ==========
 (function() {
-  // Gallery management with localStorage (easy for admin to add photos)
   let galleryPhotos = [];
 
-  // Load photos from localStorage
-  function loadGalleryPhotos() {
-    const saved = localStorage.getItem('galleryPhotos');
-    if (saved) {
-      galleryPhotos = JSON.parse(saved);
-    } else {
-      // Default sample photos
-      galleryPhotos = [
-        { id: 1, title: "Driveway Pressure Washing", description: "Before and after showing amazing results", image: "https://placehold.co/600x400/e2e8f0/02093f?text=Driveway+Cleaning" },
-        { id: 2, title: "House Exterior Wash", description: "Complete house refresh", image: "https://placehold.co/600x400/e2e8f0/02093f?text=House+Washing" },
-        { id: 3, title: "Deck Restoration", description: "Like new deck after our treatment", image: "https://placehold.co/600x400/e2e8f0/02093f?text=Deck+Cleaning" },
-        { id: 4, title: "Window Cleaning", description: "Streak-free crystal clear windows", image: "https://placehold.co/600x400/e2e8f0/02093f?text=Window+Cleaning" },
-        { id: 5, title: "Gutter Cleaning", description: "Clean gutters for proper drainage", image: "https://placehold.co/600x400/e2e8f0/02093f?text=Gutter+Service" },
-        { id: 6, title: "Lawn Care", description: "Perfectly manicured lawn", image: "https://placehold.co/600x400/e2e8f0/02093f?text=Lawn+Care" }
-      ];
-      saveGalleryPhotos();
+  // Load photos from JSON file
+  async function loadGalleryPhotos() {
+    try {
+      const response = await fetch('images/gallery/photos.json');
+      if (response.ok) {
+        galleryPhotos = await response.json();
+      } else {
+        console.log('No photos.json found, starting empty gallery');
+        galleryPhotos = [];
+      }
+    } catch (error) {
+      console.error('Error loading photos:', error);
+      galleryPhotos = [];
     }
     renderGallery();
-  }
-
-  function saveGalleryPhotos() {
-    localStorage.setItem('galleryPhotos', JSON.stringify(galleryPhotos));
   }
 
   function renderGallery() {
     const grid = document.getElementById('galleryGrid');
     if (!grid) return;
     
+    if (galleryPhotos.length === 0) {
+      // Show empty state message
+      grid.innerHTML = `
+        <div style="text-align: center; padding: 60px 20px; grid-column: 1 / -1;">
+          <div style="font-size: 4rem; margin-bottom: 20px;">📸</div>
+          <h3 style="color: #02093f; margin-bottom: 10px;">Gallery Coming Soon</h3>
+          <p style="color: #666;">Check back soon to see our latest work!</p>
+        </div>
+      `;
+      return;
+    }
+    
     grid.innerHTML = galleryPhotos.map(photo => `
-      <div class="gallery-item" onclick="openGalleryLightbox('${photo.image}', '${photo.title}')">
+      <div class="gallery-item" onclick="openGalleryLightbox('${photo.image}', '${escapeHtml(photo.title)}')">
         <img src="${photo.image}" alt="${photo.title}" loading="lazy">
         <div class="gallery-info">
           <h3>${escapeHtml(photo.title)}</h3>
@@ -243,91 +247,16 @@
     }
   }
 
-  // Add new photo
-  function addGalleryPhoto(title, description, imageData) {
-    const newPhoto = {
-      id: Date.now(),
-      title: title,
-      description: description,
-      image: imageData
-    };
-    galleryPhotos.push(newPhoto);
-    saveGalleryPhotos();
-    renderGallery();
-  }
-
-  // Escape HTML to prevent XSS
   function escapeHtml(text) {
     const div = document.createElement('div');
     div.textContent = text;
     return div.innerHTML;
   }
 
-  // Initialize gallery when on gallery page
+  // Initialize gallery
   function initGallery() {
-    // Check if we're on the gallery page
     if (document.getElementById('galleryGrid')) {
       loadGalleryPhotos();
-      
-      // Handle file upload
-      const showUploadBtn = document.getElementById('showUploadBtn');
-      const uploadForm = document.getElementById('uploadForm');
-      const cancelUploadBtn = document.getElementById('cancelUploadBtn');
-      const savePhotoBtn = document.getElementById('savePhotoBtn');
-      
-      if (showUploadBtn) {
-        showUploadBtn.addEventListener('click', () => {
-          if (uploadForm) {
-            uploadForm.classList.toggle('active');
-          }
-        });
-      }
-      
-      if (cancelUploadBtn) {
-        cancelUploadBtn.addEventListener('click', () => {
-          if (uploadForm) {
-            uploadForm.classList.remove('active');
-          }
-          const photoTitle = document.getElementById('photoTitle');
-          const photoDesc = document.getElementById('photoDesc');
-          const photoFile = document.getElementById('photoFile');
-          if (photoTitle) photoTitle.value = '';
-          if (photoDesc) photoDesc.value = '';
-          if (photoFile) photoFile.value = '';
-        });
-      }
-      
-      if (savePhotoBtn) {
-        savePhotoBtn.addEventListener('click', () => {
-          const titleInput = document.getElementById('photoTitle');
-          const descInput = document.getElementById('photoDesc');
-          const fileInput = document.getElementById('photoFile');
-          
-          const title = titleInput ? titleInput.value : '';
-          const description = descInput ? descInput.value : '';
-          const file = fileInput ? fileInput.files[0] : null;
-          
-          if (!title) {
-            alert('Please enter a photo title');
-            return;
-          }
-          
-          if (file) {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-              addGalleryPhoto(title, description, e.target.result);
-              if (uploadForm) uploadForm.classList.remove('active');
-              if (titleInput) titleInput.value = '';
-              if (descInput) descInput.value = '';
-              if (fileInput) fileInput.value = '';
-              alert('Photo added successfully!');
-            };
-            reader.readAsDataURL(file);
-          } else {
-            alert('Please select an image file');
-          }
-        });
-      }
       
       // Lightbox event listeners
       const closeLightboxBtn = document.querySelector('.close-lightbox');
@@ -347,7 +276,6 @@
     }
   }
 
-  // Run gallery initialization when DOM is ready
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initGallery);
   } else {
