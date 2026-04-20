@@ -9,10 +9,18 @@ const galleryPhotosData = [
   {
     id: 1,
     title: "Fascia & Soffit",
-    description: "",
+    description: "Fascia & Soffit",
     image: "images/Soffit-Fascia.jpg"
+  },
+  {
+    id: 2,
+    title: "Drywall",
+    description: "Drywall",
+    image: "images/Drywall.jpg"
   }
 ];
+
+
 
 // ========== DECORATOR PATTERN IMPLEMENTATION ==========
 
